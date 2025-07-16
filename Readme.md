@@ -1,0 +1,56 @@
+# terraform-aws-deploy-infra
+**Secure Web App with Public Proxy + Private Backend on AWS using Terraform**
+
+This project deploys a scalable and secure AWS infrastructure using Terraform.  
+It provisions networking, compute resources, and load balancers to host a full-stack web application.
+
+---
+
+##  **Architecture Overview**
+
+A **VPC** (`10.0.0.0/16`) consisting of:
+
+- **2 Public Subnets** > EC2 instances acting as **Nginx Reverse Proxies**  
+- **2 Private Subnets** > EC2 instances running **Web Application Backends (Node.js / Flask)**  
+- **NAT Gateway + Internet Gateway**  
+- **2 Load Balancers**:
+  - **Public ALB** > Directs traffic to proxy EC2 instances  
+  - **Internal ALB** > Directs traffic from proxies to backend servers  
+
+---
+
+## **Infrastructure Diagram**
+
+<img width="844" height="452" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/07ea2e2f-1b24-4ef9-a0e9-8a81079e84f2" />
+
+---
+
+##  **Deployment Steps**
+
+### 1**Initialize Terraform & Workspace**
+
+```bash
+terraform init
+terraform workspace new dev
+````
+
+### 2**Plan & Apply**
+
+```bash
+terraform plan
+terraform apply
+```
+
+
+##  **Verification**
+
+After deployment:
+
+1. **Frontend:**
+   Access the public ALB DNS in your browser:
+
+   ```
+   http://<public-alb-dns>  
+   ```
+2. **Backend:**
+   The proxy forwards traffic to the **Internal ALB** (`port 5000`), serving the Node.js app.
