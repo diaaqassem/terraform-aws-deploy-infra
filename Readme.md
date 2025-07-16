@@ -20,8 +20,7 @@ A **VPC** (`10.0.0.0/16`) consisting of:
 ---
 
 ## **Infrastructure Diagram**
-
-<img width="844" height="452" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/07ea2e2f-1b24-4ef9-a0e9-8a81079e84f2" />
+<img width="1251" height="699" alt="image" src="https://github.com/user-attachments/assets/fd4f5290-9f92-442e-a497-261a263505ad" />
 
 ---
 
