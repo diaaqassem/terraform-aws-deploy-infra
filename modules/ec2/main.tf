@@ -69,14 +69,8 @@ resource "aws_instance" "backend" {
   yum upgrade -y
 
   yum install -y aws-cli || true
-  
- tee .aws/credentials <<conf
- aws_access_key_id=ASIAXCCM7FBQMNZLDW6N
-aws_secret_access_key=KKiy6j9j450Bx+Z5gtoBaShcHKAxuvftMuRVuQZg
-aws_session_token=IQoJb3JpZ2luX2VjECgaCXVzLXdlc3QtMiJHMEUCIQCm7GqOMxQ6mIUYKMh2L2UjkvJ5rUB1oAbzxobgT3rbVwIgPoDP5wMZ8ia1TLo0PLA2cFUuLKLzSWEV9dGWRE6gl1gqvAIIQRAAGgw0ODU0OTI3Mjk5NTIiDPgiLNkIvkqS3SuwniqZAgLlZLcGRZ3pAFZj0B8VayLOVvM3HmhKaV4WDqxyBQx/tMOLzjyd3YxTaQ3Hv8oDndZUNC49TLVQMoJEYlyZtUEzXAEl8oSxmyEcdGtgukYzZ4JCftReACjv0qh4gMgVDr1ZWOBZN9BDii7SUSkojVX3CetI7nk+0+ievMvvYKa6G7/fSwKiUSsH55ZY2eyudr8qDG4Z8EHwTgmrp2jjzvrgSVfyqe2C86kd9nysNnjIcuqUdkfUHoLIakF46rnn/dtP0K+PlrUL9uWgGLuRDNLFmSulG3wkEfNWKbnGwhV4ZQ/xo8uQQvbPhP/Iaob3R8R1eq2bvgFqCSq8l8dmmWLSr9aRTyEKdCgn3TS/Wv8vQcXTez1sAn3PMPiO2MMGOp0BpWDx8PXRz7o9yaxQ6oRWMmAINLdkwvkElFANnHPDlnEdCyHDSjNbrXMCqKsW3hQEQPSnNV7xl9dQolrEmBmzTkK4cGtUvfpMo/4migruGzYTVi4CYk+FShQMrKkTaTuINeNN63/E0MV+YnJ+cxkuHzF3xpJZ55Y0ryGBDPCGxd9EusqZ2cpVpGRY2SZk/VrOdbcA+kvWODXx7pI4qg==
-  conf
 
-   aws s3 cp s3://fp-iti01/final-app/backend /home/ec2-user/backend-app/ --recursive
+  aws s3 cp s3://fp-iti01/final-app/backend /home/ec2-user/backend-app/ --recursive
  
   chown -R ec2-user:ec2-user /home/ec2-user/backend
   chmod -R 755 /home/ec2-user/backend
