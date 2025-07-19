@@ -11,7 +11,7 @@ It provisions networking, compute resources, and load balancers to host a full-s
 A **VPC** (`10.0.0.0/16`) consisting of:
 
 - **2 Public Subnets** > EC2 instances acting as **Nginx Reverse Proxies**  
-- **2 Private Subnets** > EC2 instances running **Web Application Backends (Node.js / Flask)**  
+- **2 Private Subnets** > EC2 instances running **Web Application Backend (Node.js)**  
 - **NAT Gateway + Internet Gateway**  
 - **2 Load Balancers**:
   - **Public ALB** > Directs traffic to proxy EC2 instances  
